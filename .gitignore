@@ -1,4 +1,5 @@
 # General
+.idea/
 instance/
 venv/
 config.py
