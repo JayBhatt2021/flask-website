@@ -1,0 +1,30 @@
+/**
+ * index.css
+ *
+ * Contains the entire CSS styles for this project.
+ */
+
+/**
+ * Home Page
+ */
+.home-notes-text {
+    margin: 1rem 0 2rem 0;
+}
+
+.home-smiling-gif {
+    margin-top: 2rem;
+}
+
+/**
+ * Sign Up and Login Pages
+ */
+.sign-up-login-form {
+    width: 50%;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.sign-up-login-title-text {
+    margin-top: 2rem;
+    text-align: center;
+}

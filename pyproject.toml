@@ -1,0 +1,22 @@
+[project]
+name = "website"
+version = "1.0.0"
+description = "A Flask Website with basic sign-up, login, and note capabilities."
+readme = "README.md"
+dependencies = [
+    "black",
+    "djlint",
+    "flake8",
+    "flask",
+    "flask-login",
+    "flask-sqlalchemy",
+    "isort",
+    "python-dotenv"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79

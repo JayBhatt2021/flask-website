@@ -1,0 +1,9 @@
+# General
+instance/
+venv/
+config.py
+.env
+
+# Pycache
+*.pyc
+__pycache__/

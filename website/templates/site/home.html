@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="row text-center">
+        <!-- Welcome Section -->
+        <div class="col">
+            <img class="home-smiling-gif"
+                 src="{{ url_for('static', filename='img/smiling.gif') }}"
+                 alt="Smiling"
+                 width="200"
+                 height="200"/>
+            <h4>Welcome to the Flask Website!</h4>
+            <p>
+                Type a note in the text box, and press the "Add Note" button to publish it.
+                If you published the note, you can delete it by pressing the "X" button.
+            </p>
+        </div>
+        <!-- Notes Section -->
+        <div class="col">
+            <h1 class="home-notes-text">Notes</h1>
+            <!-- Notes Group -->
+            <ul class="list-group" id="notes">
+                {% for note in user.notes %}
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-2">Note #{{ loop.index }}</h5>
+                            <button type="button"
+                                    class="btn-close"
+                                    data-bs-toggle="button"
+                                    aria-label="Close"
+                                    onclick="deleteNote({{ note.id }})">
+                            </button>
+                        </div>
+                        <div class="text-start">
+                            <p class="mb-2">{{ note.text }}</p>
+                            <small>{{ note.date_created }}</small>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <!-- Notes Form -->
+            <form method="post">
+                <textarea name="note" id="note" class="form-control mt-3"></textarea>
+                <button type="submit" class="btn btn-primary btn-primary-text mt-4">Add Note</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

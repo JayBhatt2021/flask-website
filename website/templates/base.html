@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Contains the metadata of the website -->
+    <head>
+        <meta name="keywords" content="flask, website"/>
+        <meta name="description" content="This is a basic Flask Website app."/>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='vendor/bootstrap-5.2.3-dist/css/bootstrap.min.css') }}"
+              media="screen, print"/>
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='vendor/fontawesome-6.3.0-web/css/fontawesome.min.css') }}"
+              media="screen, print"/>
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/index.css') }}"
+              media="screen, print"/>
+        <title>Flask Website -
+            {% block title %}{% endblock %}
+        </title>
+    </head>
+    <!-- Contains the actual HTML elements of the website -->
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Flask Website</span>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbar-external"
+                        aria-controls="navbar-external"
+                        aria-expanded="false"
+                        aria-label="Navbar Expand">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="collapse" id="navbar-external">
+            <div class="navbar-nav bg-dark text-white p-4">
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" id="home" href="/">Home</a>
+                    <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" id="sign-up" href="/sign-up">Sign Up</a>
+                    <a class="nav-item nav-link" id="login" href="/login">Login</a>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Flashed Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                {% if category == "error" %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                    </div>
+                {% else %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+        <!-- Content populated by children templates -->
+        <div class="container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- JS Scripts must always be placed before the closing body tag. -->
+        <script src="{{ url_for('static', filename='vendor/jquery-3.6.3/jquery-3.6.3.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendor/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    </body>
+</html>
