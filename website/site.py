@@ -15,9 +15,9 @@ bp = Blueprint("site", __name__)
 @bp.route("/", methods=["GET", "POST"])
 @login_required
 def home():
-    """Logs out the user to the Login Page if he/she was already logged-in.
+    """Displays the Home Page and allows users to add notes to it.
 
-    :return: The rendered HTML of the Login Template.
+    :return: The rendered HTML of the Home Template.
     """
 
     if request.method == "POST":
@@ -48,7 +48,7 @@ def delete_note():
     note = loads(request.data)
     note_id = note["noteId"]
 
-    # Queries the note by the note ID
+    # Queries the database for the note by the note ID
     queried_note = Note.query.get(note_id)
 
     # Deletes the intended note only if it was published by the current user

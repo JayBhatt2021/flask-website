@@ -3,16 +3,19 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
-# Constructs the SQLAlchemy extension
+# Initializes the SQLAlchemy extension
 db = SQLAlchemy()
 
 
 def create_app():
     """Ensures that an instance of the Flask application (app) is created and
-    configured."""
+    configured.
+
+    :return: The Flask app.
+    """
 
     # Creates the app and ensures that the configuration file(s)
-    # are relative to the instance folder
+    # is/are relative to the instance folder
     app = Flask(__name__, instance_relative_config=True)
 
     # Loads the appropriate Config environment from config.py
@@ -50,7 +53,7 @@ def setup_database_and_login_manager(app):
     :param app: the Flask app
     """
 
-    # Imports the User and Note database models (these database models must
+    # Imports the Note and User database models (these database models must
     # be imported before db.create_all() is called)
     from .models import Note, User
 
@@ -68,6 +71,7 @@ def setup_database_and_login_manager(app):
         """Finds the current user of the session.
 
         :param user_id: the User ID
+        :return: The current user.
         """
 
         return User.query.get(int(user_id))
