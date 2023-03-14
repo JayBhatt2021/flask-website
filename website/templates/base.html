@@ -26,9 +26,7 @@
             <div class="container-fluid">
                 <span class="navbar-brand mb-0 h1">Flask Website</span>
                 {% if user.is_authenticated %}
-                <span class="navbar-text text-white fw-bold ms-auto me-4">
-                    Hello, {{ user.name }}!
-                </span>
+                    <span class="navbar-text text-white fw-bold ms-auto me-4">Hello, {{ user.name }}!</span>
                 {% endif %}
                 <button class="navbar-toggler"
                         type="button"
