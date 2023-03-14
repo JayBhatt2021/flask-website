@@ -21,11 +21,11 @@ def login():
     """
 
     if request.method == "POST":
-        # Obtains email and password from the Login Form
+        # Obtains the inputted email and password from the Login Form
         inputted_email = request.form["email"]
         inputted_password = request.form["password"]
 
-        # Queries the user by the inputted email
+        # Queries the database for the user by the inputted email
         user = User.query.filter_by(email=inputted_email).first()
 
         # Displays an error message if the inputted email is wrong/nonexistent
@@ -62,29 +62,29 @@ def sign_up():
     """Signs up the user if the valid email, name, and password are inputted.
 
     :return: The rendered HTML of the Home Template if all inputs are valid;
-    otherwise, the rendered HTML of the Sign Up Template is returned.
+    otherwise, the rendered HTML of the Sign-Up Template is returned.
     """
 
     if request.method == "POST":
-        # Obtains the email, name, password, and confirm password from the
-        # Sign Up Form
+        # Obtains the inputted email, name, password, and confirm password
+        # from the Sign-Up Form
         inputted_email = request.form["email"]
         inputted_name = request.form["name"]
         inputted_password = request.form["password"]
-        inputted_password_confirm = request.form["confirm-password"]
+        inputted_confirm_password = request.form["confirm-password"]
 
-        # Queries the user by the inputted email
+        # Queries the database for the user by the inputted email
         user = User.query.filter_by(email=inputted_email).first()
 
         # Displays an error message if the specified condition isn't met;
-        # otherwise, the user is signed up and redirected to the Home Page.
+        # otherwise, the user is signed-up and redirected to the Home Page.
         if user:
             flash("This email already exists.", category="error")
         elif not (
             inputted_email
             and inputted_name
             and inputted_password
-            and inputted_password_confirm
+            and inputted_confirm_password
         ):
             flash("No field can be empty.", category="error")
         elif len(inputted_email) < 4:
@@ -94,7 +94,7 @@ def sign_up():
             )
         elif len(inputted_name) > 255:
             flash(
-                "Name must be less than 255 characters long.", category="error"
+                "Name must be less than 256 characters long.", category="error"
             )
         elif not fullmatch("[A-Za-z0-9!@#$%^&+=]{8,}", inputted_password):
             flash(
@@ -103,7 +103,7 @@ def sign_up():
                 "certain special characters (!@#$%^&+=).",
                 category="error",
             )
-        elif inputted_password != inputted_password_confirm:
+        elif inputted_password != inputted_confirm_password:
             flash("The password fields don't match.", category="error")
         else:
             flash("Your account has been created!", category="success")
