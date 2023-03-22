@@ -19,7 +19,7 @@ def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
     # Loads the appropriate Config environment from config.py
-    app.config.from_object("config.DevelopmentConfig")
+    app.config.from_object("config.ProductionConfig")
 
     # Initializes the app with the SQLAlchemy extension
     db.init_app(app)
