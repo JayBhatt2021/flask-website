@@ -36,7 +36,7 @@ def create_app():
 def register_blueprints(app):
     """Registers all app blueprints.
 
-    :param app: the Flask app
+    :param app: The Flask app.
     """
 
     # Imports the auth and site modules from the current package
@@ -50,7 +50,7 @@ def register_blueprints(app):
 def setup_database_and_login_manager(app):
     """Creates the project database and login manager.
 
-    :param app: the Flask app
+    :param app: The Flask app.
     """
 
     # Imports the Note and User database models (these database models must
@@ -70,7 +70,7 @@ def setup_database_and_login_manager(app):
     def load_user(user_id):
         """Finds the current user of the session.
 
-        :param user_id: the User ID
+        :param user_id: The User ID.
         :return: The current user.
         """
 

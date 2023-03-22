@@ -62,7 +62,7 @@ def sign_up():
     """Signs up the user if the valid email, name, and password are inputted.
 
     :return: The rendered HTML of the Home Template if all inputs are valid;
-    otherwise, the rendered HTML of the Sign-Up Template is returned.
+             otherwise, the rendered HTML of the Sign-Up Template is returned.
     """
 
     if request.method == "POST":
@@ -77,7 +77,7 @@ def sign_up():
         user = User.query.filter_by(email=inputted_email).first()
 
         # Displays an error message if the specified condition isn't met;
-        # otherwise, the user is signed-up and redirected to the Home Page.
+        # otherwise, the user is signed up and redirected to the Home Page.
         if user:
             flash("This email already exists.", category="error")
         elif not (
