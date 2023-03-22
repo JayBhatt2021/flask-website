@@ -1,6 +1,6 @@
 [project]
 name = "website"
-version = "1.0.0"
+version = "2.0.0"
 description = "A Flask Website with basic sign-up, login, and note capabilities."
 readme = "README.md"
 dependencies = [
@@ -11,7 +11,8 @@ dependencies = [
     "flask-login",
     "flask-sqlalchemy",
     "isort",
-    "python-dotenv"
+    "python-dotenv",
+    "waitress"
 ]
 
 [build-system]
