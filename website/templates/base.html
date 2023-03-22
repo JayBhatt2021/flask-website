@@ -53,8 +53,8 @@
         <!-- Flashed Messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% for category, message in messages %}
-                {% if category == "error" %}
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {% if category == "success" %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ message }}</strong>
                         <button type="button"
                                 class="btn-close"
@@ -62,7 +62,7 @@
                                 aria-label="Close"></button>
                     </div>
                 {% else %}
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>{{ message }}</strong>
                         <button type="button"
                                 class="btn-close"
