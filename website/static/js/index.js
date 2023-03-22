@@ -5,8 +5,8 @@
  */
 
 /**
- * Sends a POST request containing the noteId to /delete-note and
- * refreshes the page afterwards
+ * Sends a POST request containing noteId to /delete-note
+ * and refreshes the page afterwards
  *
  * @param  {String} noteId The ID of the note
  */
