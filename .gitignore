@@ -1,6 +1,7 @@
 # General
 .venv/
 instance/
+*.egg-info/
 .env
 
 # Pycache
