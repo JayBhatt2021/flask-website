@@ -5,7 +5,6 @@ notes and is based on Tech With Tim's [Flask Web App Tutorial](https://github.co
 However, the code in this repository is heavily modified from the original as it utilizes a more production-focused
 approach via directory modularization, newer libraries (e.g., Bootstrap 5.2), emphasis on security, etc.
 
-
 ## Installation
 
 First, `git clone` this repository, and navigate to the `flask-website` directory.
@@ -35,7 +34,6 @@ Now, install Flask Website and its dependencies.
 ```bash
 $ pip install -e .
 ```
-
 
 ## Usage
 
