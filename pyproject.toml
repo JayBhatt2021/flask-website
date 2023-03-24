@@ -1,6 +1,6 @@
 [project]
 name = "website"
-version = "2.1.0"
+version = "2.1.1"
 description = "A Flask Website with basic sign-up, login, and note capabilities."
 readme = "README.md"
 dependencies = [

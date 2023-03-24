@@ -40,7 +40,7 @@ $ pip install -e .
 Use Waitress to run the application.
 
 ```bash
-$ waitress-serve --host 127.0.0.1 --call website:create_app
+$ waitress-serve --host 127.0.0.1 --port 6650 --call website:create_app
 ```
 
 Open http://127.0.0.1:5000/login in the browser.
