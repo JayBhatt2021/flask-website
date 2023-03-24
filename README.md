@@ -43,4 +43,4 @@ Use Waitress to run the application.
 $ waitress-serve --host 127.0.0.1 --port 6650 --call website:create_app
 ```
 
-Open http://127.0.0.1:5000/login in the browser.
+Open http://127.0.0.1:6650/login in the browser.
