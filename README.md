@@ -14,7 +14,7 @@ $ git clone https://github.com/JayBhatt2021/flask-website.git
 $ cd flask-website
 ```
 
-If you use **MacOS/Linux**, use the following commands to create your virtual environment folder and activate it,
+If you use **macOS/Linux**, use the following commands to create your virtual environment folder and activate it,
 respectively:
 
 ```bash
